@@ -7,7 +7,7 @@ trigger:
 - NONE
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'vs2017-win2016'
 
 steps:
 - task: CopyFiles@2
@@ -29,12 +29,12 @@ steps:
     resourceGroupName: 'IaC-ARMDeployTest-RG'
     location: 'Australia East'
     templateLocation: 'Linked artifact'
-    csmFile: '/home/vsts/work/1/a/identitydeploy.json'
-    csmParametersFile: '/home/vsts/work/1/a/identitydeploy.parameters.json'
+    csmFile: '$(System.DefaultWorkingDirectory).\IaC-ARMDeployTest\identitydeploy.json'
+    csmParametersFile: ''$(System.DefaultWorkingDirectory).\IaC-ARMDeployTest\identitydeploy.parameters.json'
     deploymentMode: 'Incremental'
 - task: AzurePowerShell@5
   inputs:
-    azureSubscription: 'SP_DevTestKXU'
+    azureSubscription: 'SP_DevTestSA'
     ScriptType: 'FilePath'
-    ScriptPath: '/home/vsts/work/1/a/keyvault7.ps1'
+    ScriptPath: '$(System.DefaultWorkingDirectory).\IaC-ARMDeployTest\keyvault.ps1'
     azurePowerShellVersion: 'LatestVersion'
