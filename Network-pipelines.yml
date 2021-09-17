@@ -3,13 +3,8 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-# resources:
-  # pipelines:
-  # - pipeline: DEVTestKXU-Network   # Name of the pipeline resource
-    # source: DEVTestKXU-Identity # Name of the pipeline referenced by the pipeline resource
-    # project: RicohRAP # Required only if the source pipeline is in another project
-    trigger:
-    - NONE # Run DEVTestKXU-Network pipeline when any run of DEVTestKXU-Identity completes
+trigger:
+- NONE 
 
 pool:
   vmImage: 'ubuntu-latest'
