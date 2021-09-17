@@ -1,0 +1,39 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+# resources:
+#  pipelines:
+  # - pipeline: DEVTestKXU-Compute   # Name of the pipeline resource
+    # source: DEVTestKXU-Network # Name of the pipeline referenced by the pipeline resource
+    # project: RicohRAP # Required only if the source pipeline is in another project
+    trigger:
+    - NONE # Run DEVTestKXU-Compute pipeline when any run of DEVTestKXU-Compute completes
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/IaC-ARMDeployTest'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'SP_DevTestSA'
+    subscriptionId: 'a4053cb9-cf8f-4a42-9e4a-a416767ff1a2'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'IaC-ARMDeployTest-RG'
+    location: 'Australia East'
+    templateLocation: 'Linked artifact'
+    csmFile: '/home/vsts/work/1/a/computedeploy.json'
+    csmParametersFile: '/home/vsts/work/1/a/computedeploy.parameters.json'
+    deploymentMode: 'Incremental'

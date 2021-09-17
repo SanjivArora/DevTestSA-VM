@@ -1,0 +1,98 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "australiaeast"
+        },
+        "networkInterfaceName": {
+            "value": "server01-nic"
+        },
+        "subnetName": {
+            "value": "subnet2"
+        },
+        "virtualNetworkName": {
+            "value": "vnet1"
+        },
+        "VirtualNetworkResourceGroup": {  
+            "value": "IaC-ARMDeployTest-RG" 
+        }, 
+        "addressPrefixes": {
+            "value": [
+                "10.10.0.0/16"
+            ]
+        },
+        "subnets": {
+            "value": [
+                {
+                    "name": "subnet2",
+                    "properties": {
+                        "addressPrefix": "10.10.11.0/24"
+                    }
+                }
+            ]
+        },
+        "publicIpAddressName": {
+            "value": "server01-pip"
+        },
+        "publicIpAddressType": {
+            "value": "static"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "server01"
+        },
+        "virtualMachineComputerName": {
+            "value": "server01"
+        },
+        "osDiskType": {
+            "value": "Standard_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_A2_v2"
+        },
+        "adminUsername": {
+            "value": "locadm"
+        },
+        "adminPassword": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/c23ad7d1-9c6e-4c97-b9c6-758565617d5d/resourceGroups/IaC-ARMDeployTest-RG/providers/Microsoft.KeyVault/vaults/kv-kxu-01"
+                },
+                "secretName": "locadm01"
+            }
+        },
+        "patchMode": {
+            "value": "AutomaticByOS"
+        },
+        "enableHotpatching": {
+            "value": false
+        },
+        "autoShutdownStatus": {
+            "value": "Disabled"
+        },
+        "autoShutdownTime": {
+            "value": "19:00"
+        },
+        "autoShutdownTimeZone": {
+            "value": "New Zealand Standard Time"
+        },
+        "autoShutdownNotificationStatus": {
+            "value": "Enabled"
+        },
+        "autoShutdownNotificationLocale": {
+            "value": "en"
+        },
+        "autoShutdownNotificationEmail": {
+            "value": "kxu@its.ricoh.co.nz"
+        },
+        "resourceTags": {
+            "value": {
+                "Environment": "UAT",
+                "Application": "Server"
+    }
+        }
+    }
+}

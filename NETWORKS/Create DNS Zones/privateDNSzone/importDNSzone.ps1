@@ -1,0 +1,1 @@
+az network private-dns zone import -g IaC-ARMDeployTest-RG -n getmodern.co.nz -f getmodern.co.nz.dns
