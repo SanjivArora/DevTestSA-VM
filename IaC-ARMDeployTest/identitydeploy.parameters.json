@@ -1,9 +1,9 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.1",
+    "contentVersion": "1.0.0.0",
     "parameters": {
         "keyVaultName": {
-            "value": "SA-kxu-01"
+            "value": "SAdemo-01"
         },
         "location": {
             "value": "australiaeast"
@@ -21,7 +21,7 @@
             "value": "07d38d82-95f9-4f5c-b158-7aecad51f34f"
         },
         "objectId": {
-            "value": "578c32c7-59aa-4736-83f7-4bd054bd3b2a"
+            "value": "ef0fd249-72be-4b08-abde-2ec3ad94acae"
         },
         "keysPermissions": {
             "value": [
