@@ -54,7 +54,7 @@
             "value": "Standard_A2_v2"
         },
         "adminUsername": {
-            "value": "locadm"
+            "value": "adminuser"
         },
         "adminPassword": {
             "reference": {
