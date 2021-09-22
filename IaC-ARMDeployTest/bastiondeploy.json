@@ -51,7 +51,7 @@
     },
     "variables": {
         "public-ip-address-name": "[concat(parameters('bastion-host-name'),'-pip')]",
-        "bastion-subnet-name": "AzureBastionSubnet",
+        "bastion-subnet-name": "Subnet2",
         "nsg-name": "[concat(parameters('bastion-host-name'),'-nsg')]"
     },
     "resources": [
