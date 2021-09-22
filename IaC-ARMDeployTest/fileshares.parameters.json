@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageAccountName": {
-            "value": "filesharestorage2009"
+            "value": "filesharestorage2309"
         },
         "sharePrefix": {
             "value": "azfs000"
