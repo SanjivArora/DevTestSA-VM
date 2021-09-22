@@ -6,13 +6,13 @@
             "value": "VNet1"
         },
         "vnet-ip-prefix": {
-            "value": "10.0.0.0/16"
+            "value": "10.10.0.0/16"
         },
         "vnet-new-or-existing": {
             "value": "existing"
         },
         "bastion-subnet-ip-prefix": {
-            "value": "10.0.2.0/27" 
+            "value": "10.10.11.10/27" 
         },
         "bastion-host-name": {
             "value": "Btest1" 
