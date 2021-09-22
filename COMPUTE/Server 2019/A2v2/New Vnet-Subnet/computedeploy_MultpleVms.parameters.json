@@ -12,16 +12,16 @@
             "value": "[concat('Subscription#', subscription().subscriptionId)]"
         },
         "imageSku": {
-            "value": "2019-Datacenter"
+            "value": "2016-Datacenter"
         },
         "storageAccountType": {
             "value": "Standard_LRS"
         },
         "vmCount": {
-            "value": 2
+            "value": 25
         },
         "vmSize": {
-            "value": "Standard_A2_v2"
+            "value": "Standard_A1"
         }
     }
 }
