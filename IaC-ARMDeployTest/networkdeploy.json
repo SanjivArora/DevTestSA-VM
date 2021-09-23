@@ -100,6 +100,19 @@
             "properties": {
               "addressPrefix": "[parameters('subnet2Prefix')]"
             }
+          }, 
+            {
+            "type": "subnets",
+            "apiVersion": "2020-05-01",
+            "location": "[variables('location')]",
+            "name": "[parameters('subnet3Name')]",
+            "dependsOn": [
+              "[parameters('vnetName')]",
+              "[parameters('subnet2Name')]"
+            ],
+            "properties": {
+              "addressPrefix": "[parameters('subnet3Prefix')]"
+            }
           }
         ]
       }
