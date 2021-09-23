@@ -43,6 +43,20 @@
         "metadata": {
           "description": "Subnet 2 Name"
         }
+      },
+      "subnet3Prefix": {
+        "type": "string",
+        "defaultValue": "10.0.3.0/24",
+        "metadata": {
+          "description": "Subnet 3 Prefix"
+        }
+      },
+      "subnet3Name": {
+        "type": "string",
+        "defaultValue": "Subnet3",
+        "metadata": {
+          "description": "Subnet 3 Name"
+        }
       }
     },
     "variables": {
@@ -86,7 +100,20 @@
             "properties": {
               "addressPrefix": "[parameters('subnet2Prefix')]"
             }
-          }
+          } , 
+            {
+            "type": "subnets",
+            "apiVersion": "2020-05-01",
+            "location": "[variables('location')]",
+            "name": "[parameters('subnet3Name')]",
+            "dependsOn": [
+              "[parameters('vnetName')]",
+              "[parameters('subnet2Name')]"
+            ],
+            "properties": {
+              "addressPrefix": "[parameters('subnet3Prefix')]"
+            }
+          }         
         ]
       }
     ]

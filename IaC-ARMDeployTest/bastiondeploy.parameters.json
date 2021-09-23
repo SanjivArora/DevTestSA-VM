@@ -9,10 +9,10 @@
             "value": "10.10.0.0/16"
         },
         "vnet-new-or-existing": {
-            "value": "new"
+            "value": "exisitng"
         },
         "bastion-subnet-ip-prefix": {
-            "value": "10.10.12.0/27" 
+            "value": "10.10.12.0/24" 
         },
         "bastion-host-name": {
             "value": "Btest1" 
