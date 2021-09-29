@@ -17,3 +17,26 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+- task: PowerShell@2
+  inputs:
+    filePath: '$(System.DefaultWorkingDirectory)\DSC\Initiate.ps1'
+    arguments: '-filename build'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'NUnit'
+    testResultsFiles: '**/TEST-*.xml'
+    testRunTitle: 'Unit'
+- task: CopyFiles@2
+  inputs:
+    Contents: |
+      initiate.ps1
+      **\deploy.ps1
+      **\Acceptance\**
+      **\Integration\**
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)\'
+    ArtifactName: 'Deploy'
+    publishLocation: 'Container'
