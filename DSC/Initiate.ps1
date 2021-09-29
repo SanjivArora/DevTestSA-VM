@@ -1,3 +1,5 @@
+Import-Module  PSModule\psake\psake-master\src\psake.psm1
+
 param(
     [parameter()]
     [ValidateSet('Build','Deploy')]
