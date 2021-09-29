@@ -8,7 +8,7 @@ Import-Module  PSModule\psake\psake-master\src\psake.psm1
 
 #$Error.Clear()
 
-Invoke-PSake $PSScriptRoot\InfraDNS\$fileName.ps1
+Invoke-PSake $PSScriptRoot\DSC\$fileName.ps1
 
 <#if($Error.count)
 {
