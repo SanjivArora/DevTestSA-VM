@@ -4,7 +4,7 @@ param(
     [string]
     $fileName
 )
-Import-Module  $(System.DefaultWorkingDirectory)\PSModule\psake\psake-master\src\psake.psm1
+Import-Module  D:\a\1\s\PSModule\psake\psake-master\src\psake.psm1
 
 #$Error.Clear()
 
